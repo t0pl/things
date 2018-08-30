@@ -1,7 +1,7 @@
 import socket
 import platform
 from requests import get
-#from lxml import etree
+from lxml import etree
 import os
 from subprocess import Popen
 
@@ -19,6 +19,7 @@ class Main():
 			self.mycostatus = False
 		else:
 			self.ip = get('https://api.ipify.org').text
+			
 			self.mycostatus = True
 		finally:
 			moninstance.close()
