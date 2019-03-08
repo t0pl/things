@@ -26,10 +26,10 @@ class Main():
 	def IpDetails(self, target=ip):
 		if self.mycostatus == True:
 			details = get('http://ip-api.com/xml/{}'.format(str(target))).text
-			nveaufichierxml = open("C:\\Users\\sdepo\\Desktop\\ch\\resultatip.xml", 'w')
+			nveaufichierxml = open("resultatip.xml", 'w')
 			nveaufichierxml.write(str(details))
 			nveaufichierxml.close()
-			tree = etree.parse("C:\\Users\\sdepo\\Desktop\\ch\\resultatip.xml")
+			tree = etree.parse("resultatip.xml")
 			for a in tree.xpath("/query/country"):
 				country = a.text
 			for b in tree.xpath("/query/countryCode"):
@@ -70,7 +70,7 @@ class Main():
 			print("11| Organization > ", organization)
 			print("12| As > ", As)
 			print("   0000-------------------------------------------------0000")
-			os.remove("C:\\Users\\sdepo\\Desktop\\ch\\resultatip.xml")#FileNotFoundError
+			os.remove("resultatip.xml")#FileNotFoundError
 	def PublicIpAddress(self):
 		if self.mycostatus == True:
 			self.ip = get('https://api.ipify.org').text
